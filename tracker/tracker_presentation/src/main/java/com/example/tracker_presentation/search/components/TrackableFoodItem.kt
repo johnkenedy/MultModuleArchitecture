@@ -33,6 +33,8 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
@@ -71,7 +73,7 @@ fun TrackableFoodItem(
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = CenterVertically
         ) {
             Row(
                 modifier = Modifier.weight(1f)
@@ -146,7 +148,7 @@ fun TrackableFoodItem(
                     .fillMaxWidth()
                     .padding(spacing.spaceMedium),
                 horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = CenterVertically
             ) {
                 Row {
                     BasicTextField(
@@ -173,6 +175,9 @@ fun TrackableFoodItem(
                             )
                             .alignBy(LastBaseline)
                             .padding(spacing.spaceMedium)
+                            .semantics {
+                                contentDescription = "Amount"
+                            }
                     )
                     Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
                     Text(
